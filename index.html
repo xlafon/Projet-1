@@ -23,20 +23,20 @@
                 },
             });
         </script>
-         <script>
+          <script>
             AFRAME.registerComponent('videohandler', {
                 init: function () {
                     var marker = this.el;
-                    this.vod = document.querySelector("#vod");
+                    this.vid = document.querySelector("#vod");
 
                     marker.addEventListener('markerFound', function () {
                         this.toggle = true;
-                        this.vod.play();
+                        this.vid.play();
                     }.bind(this));
 
                     marker.addEventListener('markerLost', function () {
                         this.toggle = false;
-                        this.vod.pause();
+                        this.vid.pause();
                     }.bind(this));
                 },
             });
