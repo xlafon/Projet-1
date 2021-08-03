@@ -23,6 +23,24 @@
                 },
             });
         </script>
+         <script>
+            AFRAME.registerComponent('videohandler', {
+                init: function () {
+                    var marker = this.el;
+                    this.vid = document.querySelector("#vid2");
+
+                    marker.addEventListener('markerFound', function () {
+                        this.toggle = true;
+                        this.vid.play();
+                    }.bind(this));
+
+                    marker.addEventListener('markerLost', function () {
+                        this.toggle = false;
+                        this.vid.pause();
+                    }.bind(this));
+                },
+            });
+        </script>
     </head>
 
     <body style="margin: 0; overflow: hidden;">
@@ -37,6 +55,21 @@
             <a-assets>
                 <video
                     id="vid"
+                    src="https://cdt64.media.tourinsoft.eu/upload/clip64.mp4"
+                    preload="auto"
+                    response-type="arraybuffer"
+                    loop
+                    crossorigin
+                    webkit-playsinline
+                    autoplay
+                    muted
+                    playsinline
+                ></video>
+            </a-assets>
+
+<a-assets>
+                <video
+                    id="vid2"
                     src="https://cdt64.media.tourinsoft.eu/upload/clip642.mp4"
                     preload="auto"
                     response-type="arraybuffer"
@@ -52,7 +85,7 @@
             <a-marker
                 type="pattern"
                 preset="custom"
-                URL="https://xlafon.github.io/Projet-1/assets/marker2.patt"
+                URL="https://xlafon.github.io/Projet-1/assets/marker.patt"
                 videohandler
                 smooth="true"
                 smoothCount="10"
@@ -65,6 +98,29 @@
             >
                 <a-video
                     src="#vid"
+                    scale="1 1 1"
+                    position="0 1 0"
+                    rotation="-90 0 0"
+                    class="clickable"
+                    gesture-handler
+                ></a-video>
+            </a-marker>
+ <a-marker
+                type="pattern"
+                preset="custom"
+                URL="https://xlafon.github.io/Projet-1/assets/marker2.patt"
+                videohandler
+                smooth="true"
+                smoothCount="10"
+                smoothTolerance="0.01"
+                smoothThreshold="5"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerA"
+            >
+                <a-video
+                    src="#vid2"
                     scale="1 1 1"
                     position="0 1 0"
                     rotation="-90 0 0"
