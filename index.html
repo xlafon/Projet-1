@@ -27,16 +27,16 @@
             AFRAME.registerComponent('videohandler', {
                 init: function () {
                     var marker = this.el;
-                    this.vid = document.querySelector("#vid2");
+                    this.vod = document.querySelector("#vod");
 
                     marker.addEventListener('markerFound', function () {
                         this.toggle = true;
-                        this.vid.play();
+                        this.vod.play();
                     }.bind(this));
 
                     marker.addEventListener('markerLost', function () {
                         this.toggle = false;
-                        this.vid.pause();
+                        this.vod.pause();
                     }.bind(this));
                 },
             });
@@ -67,7 +67,7 @@
                 ></video>
             
                 <video
-                    id="vid2"
+                    id="vod"
                     src="https://cdt64.media.tourinsoft.eu/upload/clip642.mp4"
                     preload="auto"
                     response-type="arraybuffer"
@@ -118,7 +118,7 @@
                 id="markerA"
             >
                 <a-video
-                    src="#vid2"
+                    src="#vod"
                     scale="1 1 1"
                     position="0 1 0"
                     rotation="-90 0 0"
