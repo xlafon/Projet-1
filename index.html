@@ -8,11 +8,32 @@
 	    <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.8.4/dist/aframe-extras.min.js"></script>
 
   <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
-	    <script
-      type="text/javascript"
-      src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"
-    ></script>
-	   <script src="/script.js"></script> 
+	   <script>
+AFRAME.registerComponent('vidhandler', {
+    init: function() {
+        this.toggle = false;
+        this.vidNodes = document.querySelectorAll("#vid1, #vid2");
+        for (let i = 0; i < this.vidNodes.length; i++) {
+              this.vidNodes[i].pause();
+        }
+    },
+    tick: function() {
+        if (this.el.object3D.visible == true) {
+            if (!this.toggle) {
+                this.toggle = true;
+                for (let i = 0; i < this.vidNodes.length; i++) {
+                  this.vidNodes[i].play();
+                }
+            }
+        } else {
+            this.toggle = false;
+            for (let i = 0; i < this.vidNodes.length; i++) {
+              this.vidNodes[i].pause();
+            }
+        }
+    }
+});
+</script>
 	    
 	    
 	    
