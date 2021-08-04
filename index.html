@@ -12,7 +12,7 @@
 AFRAME.registerComponent('vidhandler', {
     init: function() {
         this.toggle = false;
-        this.vidNodes = document.querySelectorAll("#vid1, #vid2");
+        this.vidNodes = document.querySelectorAll("#vid1, #vid2", #vid3", #vid4");
         for (let i = 0; i < this.vidNodes.length; i++) {
               this.vidNodes[i].pause();
         }
