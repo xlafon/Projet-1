@@ -10,28 +10,43 @@
   <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
        <script>
 AFRAME.registerComponent('vidhandler', {
-    init: function() {
-        this.toggle = false;
-        this.vidNodes = document.querySelectorAll("#vid, #videonew");
-        for (let i = 0; i < this.vidNodes.length; i++) {
-              this.vidNodes[i].pause();
-        }
-    },
-    tick: function() {
-        if (this.el.object3D.visible == true) {
-            if (!this.toggle) {
-                this.toggle = true;
-                for (let i = 0; i < this.vidNodes.length; i++) {
-                  this.vidNodes[i].play();
-                }
-            }
-        } else {
-            this.toggle = false;
-            for (let i = 0; i < this.vidNodes.length; i++) {
-              this.vidNodes[i].pause();
-            }
-        }
+  init: function () {
+    this.toggle = false;
+    this.vid = document.querySelector("#vid")
+    this.vid.pause()
+},
+tick:function(){
+   if(this.el.object3D.visible == true){
+     if(!this.toggle){
+       this.toggle = true;
+       this.vid.play();
     }
+  }else{
+    this.toggle = false;
+    this.vid.pause();
+  }
+ }
+});
+</script>
+	    
+	    <script>
+AFRAME.registerComponent('vidhandler', {
+  init: function () {
+    this.toggle = false;
+    this.vid = document.querySelector("#videonew")
+    this.vid.pause()
+},
+tick:function(){
+   if(this.el.object3D.visible == true){
+     if(!this.toggle){
+       this.toggle = true;
+       this.vid.play();
+    }
+  }else{
+    this.toggle = false;
+    this.vid.pause();
+  }
+ }
 });
 </script>
 
