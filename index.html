@@ -55,15 +55,15 @@ AFRAME.registerComponent('vidhandler', {
 	  
 	  
     <a-assets>
-      <video id="vid" src="https://cdn.glitch.com/b62367d1-ceab-454b-b664-b032f995ed86%2FBig_Buck_Bunny_Trailer_1080p.ogv.720p.webm?1532370072191" loop="true" crossorigin>
-	<video id="videonew" src="https://cdt64.media.tourinsoft.eu/upload/clip64.mp4" loop="true" crossorigin>      
+      <video id="vid" src="https://cdt64.media.tourinsoft.eu/upload/clip64.mp4" loop="true" crossorigin>
+	<video id="videonew" src="https://cdt64.media.tourinsoft.eu/upload/clip642.mp4" loop="true" crossorigin>      
     </a-assets>
    
     <a-marker id="memarker" preset="hiro" vidhandler>
       <a-plane position='0 1 0' scale="1 1 1" width="2" rotation="-90 0 0" material='transparent:true;opacity: 0.7;src:#vid'></a-plane>
     </a-marker>
 	      
-	      <a-marker id="memarker" preset="kanji" vidhandler>
+	      <a-marker id="memarker2" preset="kanji" vidhandler>
       <a-plane position='0 1 0' scale="1 1 1" width="2" rotation="-90 0 0" material='transparent:true;opacity: 0.7;src:#videonew'></a-plane>
     </a-marker>
 <a-entity camera></a-entity>
