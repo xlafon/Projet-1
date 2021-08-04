@@ -5,30 +5,33 @@
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
-        <script>
-            AFRAME.registerComponent('vidHandler', {
-  // define a variable in which we will keep the video element
-  schema: {
-     video: {type: 'selector'},
-  },
-  init: function() {
-     // use the video from the schema
-     this.video = this.data.video
-     this.video.pause()
-  },
-  tick: function() {
-    if (this.el.object3D.visible == true) {
-      if (!this.toggle) {
-        this.toggle = true;
-        this.video.play()
-      }
-     } else {
-      this.toggle = false;
-      this.video.pause()
+       <script>
+AFRAME.registerComponent('vidhandler', {
+    init: function() {
+        this.toggle = false;
+        this.vidNodes = document.querySelectorAll("#vid, #videonew");
+        for (let i = 0; i < this.vidNodes.length; i++) {
+              this.vidNodes[i].pause();
+        }
+    },
+    tick: function() {
+        if (this.el.object3D.visible == true) {
+            if (!this.toggle) {
+                this.toggle = true;
+                for (let i = 0; i < this.vidNodes.length; i++) {
+                  this.vidNodes[i].play();
+                }
+            }
+        } else {
+            this.toggle = false;
+            for (let i = 0; i < this.vidNodes.length; i++) {
+              this.vidNodes[i].pause();
+            }
+        }
     }
-  }
-})
-        </script>
+});
+</script>
+
          
     </head>
 
@@ -42,38 +45,20 @@
             gesture-detector
         >
             
-            
+          <a-scene embedded arjs>
+      <a-assets>
+        <video id="one" loop="true" crossorigin="anonymous" 
+               src='src="https://cdt64.media.tourinsoft.eu/upload/clip64.mp4'></video>
+        <video id="two" loop="true" crossorigin="anonymous" 
+               src='src="https://cdt64.media.tourinsoft.eu/upload/clip642.mp4'></video>
+      </a-assets>
+      
+         
          
             
             
             
-            <a-assets>
-                <video
-                    id="one"
-                    src="https://cdt64.media.tourinsoft.eu/upload/clip64.mp4"
-                    preload="auto"
-                    response-type="arraybuffer"
-                    loop
-                    crossorigin
-                    webkit-playsinline
-                    autoplay
-                    muted
-                    playsinline
-                >
-            
-                <video
-                    id="two"
-                    src="https://cdt64.media.tourinsoft.eu/upload/clip642.mp4"
-                    preload="auto"
-                    response-type="arraybuffer"
-                    loop
-                    crossorigin
-                    webkit-playsinline
-                    autoplay
-                    muted
-                    playsinline
-                >
-            </a-assets>
+           
 
             <a-marker
                 type="pattern"
@@ -89,14 +74,7 @@
                 cursor="fuse: false; rayOrigin: mouse;"
                 id="markerA"
             >
-                <a-video
-                    src="#one"
-                    scale="1 1 1"
-                    position="0 1 0"
-                    rotation="-90 0 0"
-                    class="clickable"
-                    gesture-handler
-                ></a-video>
+                
             </a-marker>
  <a-marker
                 type="pattern"
@@ -112,14 +90,7 @@
                 cursor="fuse: false; rayOrigin: mouse;"
                 id="markerB"
             >
-                <a-video
-                    src="#two"
-                    scale="1 1 1"
-                    position="0 1 0"
-                    rotation="-90 0 0"
-                    class="clickable"
-                    gesture-handler
-                ></a-video>
+                
             </a-marker>
 
             <a-entity camera></a-entity>
