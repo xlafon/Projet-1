@@ -64,18 +64,8 @@ AFRAME.registerComponent('vidhandler', {
    
 	
 	      
-    <a-marker type="pattern" type="pattern"
-                preset="custom"                
-		URL="https://xlafon.github.io/Projet-1/assets/marker.patt"
-                vidhandler="target: #vid1"
-                smooth="true"
-                smoothCount="10"
-                smoothTolerance="0.01"
-                smoothThreshold="5"
-                raycaster="objects: .clickable"
-                emitevents="true"
-                cursor="fuse: false; rayOrigin: mouse;"
-	      >
+     <a-marker type="pattern" preset="custom"
+                URL="https://xlafon.github.io/Projet-1/assets/marker.patt" vidhandler="target: #vid1">
       <a-entity position="0 0 0">
           <a-video
             width="2"
@@ -87,16 +77,7 @@ AFRAME.registerComponent('vidhandler', {
     </a-marker>
 	      
 	      <a-marker type="pattern" preset="custom"                
-		URL="https://xlafon.github.io/Projet-1/assets/marker2.patt"
-                vidhandler="target: #vid2"
-                smooth="true"
-                smoothCount="10"
-                smoothTolerance="0.01"
-                smoothThreshold="5"
-                raycaster="objects: .clickable"
-                emitevents="true"
-                cursor="fuse: false; rayOrigin: mouse;"
-			>
+		URL="https://xlafon.github.io/Projet-1/assets/marker2.patt" vidhandler="target: #vid2">
       <a-entity position="0 0 0">
           <a-video
             width="2"
