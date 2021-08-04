@@ -85,6 +85,57 @@ AFRAME.registerComponent('vidhandler', {
                 ></video>     
     </a-assets>
    
+	  <a-marker
+                type="pattern"
+                preset="custom"
+                URL="https://xlafon.github.io/Projet-1/assets/marker.patt"
+                videohandler="video: #vid1"
+                smooth="true"
+                smoothCount="10"
+                smoothTolerance="0.01"
+                smoothThreshold="5"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerA"
+            >
+                <a-video
+                    src="#vid1"
+                    scale="1 1 1"
+                    position="0 1 0"
+                    rotation="-90 0 0"
+                    class="clickable"
+                    gesture-handler
+                ></a-video>
+            </a-marker>
+	  
+	  
+	  <a-marker
+                type="pattern"
+                preset="custom"                
+		URL="https://xlafon.github.io/Projet-1/assets/marker2.patt"
+                videohandler="video: #vid2"
+                smooth="true"
+                smoothCount="10"
+                smoothTolerance="0.01"
+                smoothThreshold="5"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerA"
+            >
+                <a-video
+                    src="#vid2"
+                    scale="1 1 1"
+                    position="0 1 0"
+                    rotation="-90 0 0"
+                    class="clickable"
+                    gesture-handler
+                ></a-video>
+            </a-marker>
+	  
+	  
+	  
     <a-marker type="pattern" preset="hiro" vidhandler="target: #vid1">
       <a-entity position="0 0 0">
           <a-video
