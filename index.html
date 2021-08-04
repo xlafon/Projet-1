@@ -30,7 +30,7 @@ tick:function(){
 </script>
 	    
 	    <script>
-AFRAME.registerComponent('vidhandler', {
+AFRAME.registerComponent('vidhandler2', {
   init: function () {
     this.toggle = false;
     this.vid = document.querySelector("#videonew")
@@ -78,7 +78,7 @@ tick:function(){
       <a-plane position='0 1 0' scale="1 1 1" width="2" rotation="-90 0 0" material='transparent:true;opacity: 0.7;src:#vid'></a-plane>
     </a-marker>
 	      
-	      <a-marker id="memarker2" preset="kanji" vidhandler>
+	      <a-marker id="memarker2" preset="kanji" vidhandler2>
       <a-plane position='0 1 0' scale="1 1 1" width="2" rotation="-90 0 0" material='transparent:true;opacity: 0.7;src:#videonew'></a-plane>
     </a-marker>
 <a-entity camera></a-entity>
