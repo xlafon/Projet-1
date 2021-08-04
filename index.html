@@ -8,29 +8,32 @@
 	    <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.8.4/dist/aframe-extras.min.js"></script>
 
   <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
-        <script>
+       <script>
 AFRAME.registerComponent('vidhandler', {
-  // ...
-  init: function () {
-    // Set up initial state and variables.
-    this.toggle = false;
-    this.vid = document.querySelector("#vid")
-    this.vid.pause();
-  },
-  tick:function(){
-    
-if(this.el.object3D.visible == true){
-  if(!this.toggle){
-     this.toggle = true;
-     this.vid.play();
+    init: function() {
+        this.toggle = false;
+        this.vidNodes = document.querySelectorAll("#vid, #videonew");
+        for (let i = 0; i < this.vidNodes.length; i++) {
+              this.vidNodes[i].pause();
+        }
+    },
+    tick: function() {
+        if (this.el.object3D.visible == true) {
+            if (!this.toggle) {
+                this.toggle = true;
+                for (let i = 0; i < this.vidNodes.length; i++) {
+                  this.vidNodes[i].play();
+                }
+            }
+        } else {
+            this.toggle = false;
+            for (let i = 0; i < this.vidNodes.length; i++) {
+              this.vidNodes[i].pause();
+            }
+        }
     }
-  }else{
-  this.toggle = false;
-    this.vid.pause();
-    }
-  }
 });
-  </script>
+</script>
 
 </head>
 
@@ -52,12 +55,16 @@ if(this.el.object3D.visible == true){
 	  
 	  
     <a-assets>
-      <video id="one" src="https://cdn.glitch.com/b62367d1-ceab-454b-b664-b032f995ed86%2FBig_Buck_Bunny_Trailer_1080p.ogv.720p.webm?1532370072191" loop="true" crossorigin>
-	<video id="two" src="https://cdt64.media.tourinsoft.eu/upload/clip64.mp4" loop="true" crossorigin>      
+      <video id="vid" src="https://cdn.glitch.com/b62367d1-ceab-454b-b664-b032f995ed86%2FBig_Buck_Bunny_Trailer_1080p.ogv.720p.webm?1532370072191" loop="true" crossorigin>
+	<video id="videonew" src="https://cdt64.media.tourinsoft.eu/upload/clip64.mp4" loop="true" crossorigin>      
     </a-assets>
    
     <a-marker id="memarker" preset="hiro" vidhandler>
-      <a-plane position='0 1 0' scale="1 1 1" width="2" rotation="-90 0 0" material='transparent:true;opacity: 0.7;src:#one'></a-plane>
+      <a-plane position='0 1 0' scale="1 1 1" width="2" rotation="-90 0 0" material='transparent:true;opacity: 0.7;src:#vid'></a-plane>
+    </a-marker>
+	      
+	      <a-marker id="memarker" preset="kanji" vidhandler>
+      <a-plane position='0 1 0' scale="1 1 1" width="2" rotation="-90 0 0" material='transparent:true;opacity: 0.7;src:#videonew'></a-plane>
     </a-marker>
 <a-entity camera></a-entity>
   </a-scene>
