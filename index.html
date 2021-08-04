@@ -55,6 +55,9 @@ AFRAME.registerComponent('vidhandler', {
         >
 		
 		<a-assets>
+			<video id="vid3" src="https://cdt64.media.tourinsoft.eu/upload/clip64.mp4" loop="true" crossorigin>
+	<video id="vid4" src="https://cdt64.media.tourinsoft.eu/upload/clip642.mp4" loop="true" crossorigin> 
+		
                 <video
                     id="vid1"
                     src="https://cdt64.media.tourinsoft.eu/upload/clip64.mp4"
@@ -97,10 +100,7 @@ AFRAME.registerComponent('vidhandler', {
                 ></a-video>
             </a-marker>
 		
-		<a-assets>
-      <video id="vid3" src="https://cdt64.media.tourinsoft.eu/upload/clip64.mp4" loop="true" crossorigin>
-	<video id="vid4" src="https://cdt64.media.tourinsoft.eu/upload/clip642.mp4" loop="true" crossorigin>      
-    </a-assets>
+		
    
     <a-marker type="pattern" preset="hiro" vidhandler="target: #vid3">
       <a-entity position="0 0 0">
