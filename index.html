@@ -8,47 +8,14 @@
 	    <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.8.4/dist/aframe-extras.min.js"></script>
 
   <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
-       <script>
-AFRAME.registerComponent('vidhandler', {
-  init: function () {
-    this.toggle = false;
-    this.vid = document.querySelector("#vid")
-    this.vid.pause()
-},
-tick:function(){
-   if(this.el.object3D.visible == true){
-     if(!this.toggle){
-       this.toggle = true;
-       this.vid.play();
-    }
-  }else{
-    this.toggle = false;
-    this.vid.pause();
-  }
- }
-});
-</script>
+	    <script
+      type="text/javascript"
+      src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"
+    ></script>
+	   <script src="/script.js"></script> 
 	    
-	    <script>
-AFRAME.registerComponent('vidhandler2', {
-  init: function () {
-    this.toggle = false;
-    this.vid = document.querySelector("#videonew")
-    this.vid.pause()
-},
-tick:function(){
-   if(this.el.object3D.visible == true){
-     if(!this.toggle){
-       this.toggle = true;
-       this.vid.play();
-    }
-  }else{
-    this.toggle = false;
-    this.vid.pause();
-  }
- }
-});
-</script>
+	    
+	    
 
 </head>
 
@@ -70,17 +37,30 @@ tick:function(){
 	  
 	  
     <a-assets>
-      <video id="vid" src="https://cdt64.media.tourinsoft.eu/upload/clip64.mp4" loop="true" crossorigin>
-	<video id="videonew" src="https://cdt64.media.tourinsoft.eu/upload/clip642.mp4" loop="true" crossorigin>      
+      <video id="vid1" src="https://cdt64.media.tourinsoft.eu/upload/clip64.mp4" loop="true" crossorigin>
+	<video id="vid2" src="https://cdt64.media.tourinsoft.eu/upload/clip642.mp4" loop="true" crossorigin>      
     </a-assets>
    
-    <a-marker id="memarker" preset="hiro" vidhandler>
-      <a-plane position='0 1 0' scale="1 1 1" width="2" rotation="-90 0 0" material='transparent:true;opacity: 0.7;src:#vid'></a-plane>
+    <a-marker type="pattern" preset="hiro" vidhandler="target: #vid1">
+      <a-entity position="0 0 0">
+          <a-video
+            width="2"
+            height="2"
+            rotation="-90 0 0"
+            material="transparent:true;shader:flat;side:double;src:#vid1"
+          ></a-video>
+        </a-entity>
     </a-marker>
 	      
-	      <a-marker id="memarker2" preset="kanji" vidhandler2>
-      <a-plane position='0 1 0' scale="1 1 1" width="2" rotation="-90 0 0" material='transparent:true;opacity: 0.7;src:#videonew'></a-plane>
-    </a-marker>
+	      <a-marker type="pattern" preset="kanji" vidhandler="target: #vid2">
+      <a-entity position="0 0 0">
+          <a-video
+            width="2"
+            height="2"
+            rotation="-90 0 0"
+            material="transparent:true;shader:flat;side:double;src:#vid2"
+          ></a-video>
+        </a-entity></a-marker>
 <a-entity camera></a-entity>
   </a-scene>
 </body>
