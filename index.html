@@ -58,14 +58,12 @@ AFRAME.registerComponent('vidhandler', {
 	  
 	  
     <a-assets>
+      <a-assets>
       <video id="vid1" src="https://cdt64.media.tourinsoft.eu/upload/clip64.mp4" loop="true" crossorigin>
 	<video id="vid2" src="https://cdt64.media.tourinsoft.eu/upload/clip642.mp4" loop="true" crossorigin>      
     </a-assets>
    
-	
-	      
-     <a-marker type="pattern" preset="custom"
-                URL="https://xlafon.github.io/Projet-1/assets/marker.patt" vidhandler="target: #vid1">
+    <a-marker type="pattern" preset="hiro" vidhandler="target: #vid1">
       <a-entity position="0 0 0">
           <a-video
             width="2"
@@ -76,8 +74,7 @@ AFRAME.registerComponent('vidhandler', {
         </a-entity>
     </a-marker>
 	      
-	      <a-marker type="pattern" preset="custom"                
-		URL="https://xlafon.github.io/Projet-1/assets/marker2.patt" vidhandler="target: #vid2">
+	      <a-marker type="pattern" preset="kanji" vidhandler="target: #vid2">
       <a-entity position="0 0 0">
           <a-video
             width="2"
