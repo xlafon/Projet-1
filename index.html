@@ -52,9 +52,25 @@ AFRAME.registerComponent('vidhandler', {
             embedded
             gesture-detector
         >
-            <a-assets>
-                <video id="vid1" src="https://cdt64.media.tourinsoft.eu/upload/clip64.mp4" loop="true" crossorigin></video>
+		
+		<a-assets>
+                <video
+                    id="vid1"
+                    src="https://cdt64.media.tourinsoft.eu/upload/clip64.mp4"
+                    preload="auto"
+                    response-type="arraybuffer"
+                    loop
+                    crossorigin
+                    webkit-playsinline
+                    autoplay
+                    muted
+                    playsinline
+                ></video>
             </a-assets>
+		
+		
+		
+           
 
             <a-marker
                 type="pattern"
