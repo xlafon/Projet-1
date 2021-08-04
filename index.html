@@ -12,7 +12,7 @@
 AFRAME.registerComponent('vidhandler', {
     init: function() {
         this.toggle = false;
-        this.vidNodes = document.querySelectorAll("#vid1, #vid2", #vid3", #vid4");
+        this.vidNodes = document.querySelectorAll("#vid1, #vid2");
         for (let i = 0; i < this.vidNodes.length; i++) {
               this.vidNodes[i].pause();
         }
@@ -41,11 +41,11 @@ AFRAME.registerComponent('vidhandler', {
 </head>
 
 
-	  
-	  
-	  
-	  <body style="margin: 0; overflow: hidden;">
-        <a-scene
+<body style='margin : 0px; overflow: hidden;'>
+ 
+	
+	
+  <a-scene
             vr-mode-ui="enabled: false"
             loading-screen="enabled: false;"
             arjs='sourceType: webcam; debugUIEnabled: false;'
@@ -53,39 +53,38 @@ AFRAME.registerComponent('vidhandler', {
             embedded
             gesture-detector
         >
-		
-		<a-assets>
-			<video id="vid3" src="https://cdt64.media.tourinsoft.eu/upload/clip64.mp4" loop="true" crossorigin>
-	<video id="vid4" src="https://cdt64.media.tourinsoft.eu/upload/clip642.mp4" loop="true" crossorigin> 
-		
-               
-		
+	  
+	  
+	  
+	  
+    <a-assets>
+      <video id="vid1" src="https://cdt64.media.tourinsoft.eu/upload/clip64.mp4" loop="true" crossorigin>
+	<video id="vid2" src="https://cdt64.media.tourinsoft.eu/upload/clip642.mp4" loop="true" crossorigin>      
+    </a-assets>
    
-    <a-marker type="pattern" preset="hiro" vidhandler="target: #vid3">
+    <a-marker type="pattern" preset="hiro" vidhandler="target: #vid1">
       <a-entity position="0 0 0">
           <a-video
             width="2"
             height="2"
             rotation="-90 0 0"
-            material="transparent:true;shader:flat;side:double;src:#vid3"
+            material="transparent:true;shader:flat;side:double;src:#vid1"
           ></a-video>
         </a-entity>
     </a-marker>
 	      
-	      <a-marker type="pattern" preset="kanji" vidhandler="target: #vid4">
+	      <a-marker type="pattern" preset="kanji" vidhandler="target: #vid2">
       <a-entity position="0 0 0">
           <a-video
             width="2"
             height="2"
             rotation="-90 0 0"
-            material="transparent:true;shader:flat;side:double;src:#vid4"
+            material="transparent:true;shader:flat;side:double;src:#vid2"
           ></a-video>
         </a-entity></a-marker>
-		
-		
+<a-entity camera></a-entity>
+  </a-scene>
+</body>
 
-            <a-entity camera></a-entity>
-        </a-scene>
-    </body>
 
 </html>
