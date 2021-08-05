@@ -31,16 +31,9 @@ AFRAME.registerComponent('vidhandler', {
 
 <body style='margin : 0px; overflow: hidden;'>
  
+	<a-scene embedded arjs>
 	
-	
-  <a-scene
-            vr-mode-ui="enabled: false"
-            loading-screen="enabled: false;"
-            arjs='sourceType: webcam; debugUIEnabled: false;'
-            id="scene"
-            embedded
-            gesture-detector
-        >
+  
       <a-assets>
         <video id="vid" loop="true" crossorigin="anonymous" 
                src='https://cdn.glitch.com/f8908c29-7a4c-455b-93ca-6172548f04c2%2FBig_Buck_Bunny_Trailer_1080p.ogv.360p.vp9.webm?v=1566582340300'></video>
