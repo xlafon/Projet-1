@@ -18,12 +18,43 @@
       arjs="sourceType: webcam; debugUIEnabled: false;"
     >
       <a-text
-        value="This content will always face you."
+        value="AaDT64"
         look-at="[gps-camera]"
         scale="50 50 50"
         gps-entity-place="latitude: 43.487498; longitude: -1.473377;"
-      ></a-text>
-      <a-camera gps-camera rotation-reader> </a-camera>
-    </a-scene>
-  </body>
+      ></a-text> 
+      
+      <a-assets>
+                <video
+                    src="assets/asset.mp4"
+                    preload="auto"
+                    id="vid"
+                    response-type="arraybuffer"
+                    loop
+                    crossorigin
+                    webkit-playsinline
+                    autoplay
+                    muted
+                    playsinline
+                ></video>
+            </a-assets>
+
+                <a-video
+                    src="#vid"
+                    position='0 0.1 0'
+                    rotation="-90 0 0"
+                    look-at="[gps-camera]"
+                    videohandler
+                    smooth="true"
+                    smoothCount="10"
+                    smoothTolerance="0.01"
+                    smoothThreshold="5"
+                    autoplay="false"
+                    scale="1 1 1"
+                    gps-entity-place="latitude: 43.48727; longitude: -1.47331;"
+                ></a-video>
+
+            <a-camera gps-camera rotation-reader></a-camera>
+        </a-scene>
+    </body>
 </html>
