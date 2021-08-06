@@ -15,34 +15,18 @@
             arjs="sourceType: webcam; debugUIEnabled: false;"
         >
                 <a-assets>
-                <video
-                    src="assets/asset.mp4"
-                    preload="auto"
-                    id="vid"
-                    response-type="arraybuffer"
-                    loop
-                    crossorigin
-                    webkit-playsinline
-                    autoplay
-                    muted
-                    playsinline
-                ></video>
-            </a-assets>
-
-                <a-video
-                    src="#vid"
-                    position='0 0.1 0'
-                    rotation="-90 0 0"
+                 <a-image
+                    src="assets/PHOTO1.jpeg"
                     look-at="[gps-camera]"
-                    videohandler
-                    smooth="true"
-                    smoothCount="10"
-                    smoothTolerance="0.01"
-                    smoothThreshold="5"
-                    autoplay="false"
                     scale="1 1 1"
-                    gps-entity-place="latitude: 43.48727; longitude: -1.47331;"
-                ></a-video>
+                    gps-entity-place="latitude: 43.48749891442084; longitude: -1.4733775373494842;"
+                ></a-image>
+                <a-image
+                    src="assets/asset.jpeg"
+                    look-at="[gps-camera]"
+                    scale="1 1 1"
+                    gps-entity-place="latitude: 43.4872707445014; longitude: -1.4733145054427537;"
+                ></a-image>
 
             <a-camera gps-camera rotation-reader></a-camera>
         </a-scene>
